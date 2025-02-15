@@ -54,6 +54,7 @@
             margin: 10px;
             box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
         }
+        
 
         footer {
             background-color: #343a40;
@@ -66,16 +67,19 @@
     </style>
 </head>
 <body>
-    <!-- Música de fondo -->
-    <audio autoplay loop>
-        <source src="san_valentin.mp3" type="audio/mp3">
-        Tu navegador no soporta audio HTML5.
-    </audio>
+    
 
     <!-- Encabezado -->
     <header class="bg-danger text-white text-center py-5">
         <h1>Feliz San Valentín, Mi Amor 🐝❤️</h1>
         <p class="lead">¡Eres lo mejor que me ha podido pasar!</p>
+        <!-- Botón para reproducir música -->
+    <button id="playMusic" class="btn btn-danger mt-3">🎶 Reproducir Música</button>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="san_valentin.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+    </audio>
     </header>
     
     <!-- Contenido Interactivo -->
@@ -130,6 +134,18 @@ Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
         <p> Para Mi Amorcito Anabel, Siempre juntos. 💖</p>
     </footer>
     
+    <script>
+        document.getElementById("playMusic").addEventListener("click", function() {
+            var audio = document.getElementById("backgroundMusic");
+            if (audio.paused) {
+                audio.play();
+                this.innerText = "🎵 Música Reproduciendo";
+            } else {
+                audio.pause();
+                this.innerText = "🎶 Reproducir Música";
+            }
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
