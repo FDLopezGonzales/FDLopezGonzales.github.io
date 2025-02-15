@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Feliz San Valentín, Mi Amor 🐝💖</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffcccc;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .message {
+            font-size: 22px;
+            margin-top: 20px;
+        }
+        .love-button {
+            margin-top: 20px;
+            background-color: #ff69b4;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 50px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .love-button:hover {
+            background-color: #ff1493;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .photo-gallery {
+            background-color: #ffe6e6;
+            padding: 30px 0;
+        }
+        .photo-gallery img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio autoplay loop>
+        <source src="san_valentin.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+
+    <!-- Encabezado -->
+    <header class="bg-danger text-white text-center py-5">
+        <h1>Feliz San Valentín, Mi Amor 🐝❤️</h1>
+        <p class="lead">¡Eres lo mejor que me ha podido pasar!</p>
+    </header>
+    
+    <!-- Contenido Interactivo -->
+    <section class="container my-5">
+        <div>
+            <p class="message">Haz clic en el botón para ver cuánto te amo ❤️</p>
+            <div class="button-container">
+                <button class="love-button" data-bs-toggle="modal" data-bs-target="#mensajeModal">Haz clic aquí</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal de Amor -->
+    <div class="modal fade" id="mensajeModal" tabindex="-1" aria-labelledby="mensajeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mensajeModalLabel">Para Ti, Mi Amor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="fs-4">Aunque estemos lejos, quiero que sepas que cada día te amo más y más. La distancia no cambia nada, al contrario, solo me hace darme cuenta de lo importante que eres para mí. Te extraño con locura 🥺, pero sé que esto es solo un capítulo más en nuestra historia, y cuando nos volvamos a ver, todo valdrá la pena.
+
+Extraño tu risa, tus abrazos y hasta esos momentos en los que solo nos miramos sin decir nada, pero lo decimos todo 💕. Tú eres mi felicidad, mi paz y mi razón para seguir soñando con el futuro que construiremos juntos.
+
+Feliz San Valentín, amorcito 😘. No importa la distancia, siempre estás en mi corazón 💖✨.
+
+Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Galería de Recuerdos -->
+    <section class="photo-gallery">
+        <div class="container text-center">
+            <h2>Nuestros Recuerdos 💞</h2>
+            <p>Algunas de nuestros mejores fotos cuando me visitaste, te amo.</p>
+            <div class="row">
+                <div class="col-md-4"><img src="img/foto1.jpg" alt="Recuerdo 1"></div>
+                <div class="col-md-4"><img src="img/foto2.jpg" alt="Recuerdo 2"></div>
+                <div class="col-md-4"><img src="img/foto3.jpg" alt="Recuerdo 3"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p> Para Mi Amorcito Anabel, Siempre juntos. 💖</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
