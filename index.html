@@ -101,7 +101,6 @@
         .counter .numbers {
             font-size: 50px;
             font-weight: bold;
-            color: #FFFFFF;
         }
 
         .counter button {
@@ -220,14 +219,14 @@ Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
     <!-- Contador de tiempo -->
     <section class="counter-container">
         <div class="container text-center">
-            <h2><span>⏱️❤️</span> <strong>Tiempo que llevamos juntos</strong><span>❤️⏱️</span></h2>
+            <h2><span>⏱️❤️</span> <strong>Tiempo que llevamos juntos:</strong></h2>
             <div id="countdown" class="counter">
-                <div><span class="numbers" id="years">0</span><span>AÑOS</span></div>
-                <div><span class="numbers" id="months">0</span><span>MESES</span></div>
-                <div><span class="numbers" id="days">0</span><span>DÍAS</span></div>
-                <div><span class="numbers" id="hours">0</span><span>HORAS</span></div>
-                <div><span class="numbers" id="minutes">0</span><span>MINUTOS</span></div>
-                <div><span class="numbers" id="seconds">0</span><span>SEGUNDOS</span></div>
+                <div><span class="numbers" id="years">0</span><span>años</span></div>
+                <div><span class="numbers" id="months">0</span><span>meses</span></div>
+                <div><span class="numbers" id="days">0</span><span>días</span></div>
+                <div><span class="numbers" id="hours">0</span><span>horas</span></div>
+                <div><span class="numbers" id="minutes">0</span><span>minutos</span></div>
+                <div><span class="numbers" id="seconds">0</span><span>segundos</span></div>
             </div>
         </div>
     </section>
@@ -242,7 +241,7 @@ Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
             var audio = document.getElementById("backgroundMusic");
             if (audio.paused) {
                 audio.play();
-                this.innerText = "🎵 Música Reproduciendo";
+                this.innerText = "🎵 Música Reproducida";
             } else {
                 audio.pause();
                 this.innerText = "🎶 Reproducir Música";
@@ -253,21 +252,40 @@ Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
         function calcularTiempo() {
             const fechaInicio = new Date('2023-09-27T15:00:00'); // Fecha de inicio
             const ahora = new Date();
-            const diferencia = ahora - fechaInicio;
 
-            const segundos = Math.floor(diferencia / 1000);
-            const minutos = Math.floor(segundos / 60);
-            const horas = Math.floor(minutos / 60);
-            const dias = Math.floor(horas / 24);
-            const meses = Math.floor(dias / 30);
-            const años = Math.floor(meses / 12);
+            // Calculamos la diferencia de años
+            let years = ahora.getFullYear() - fechaInicio.getFullYear();
 
-            document.getElementById("years").innerText = años;
-            document.getElementById("months").innerText = meses % 12;
-            document.getElementById("days").innerText = dias % 30;
-            document.getElementById("hours").innerText = horas % 24;
-            document.getElementById("minutes").innerText = minutos % 60;
-            document.getElementById("seconds").innerText = segundos % 60;
+            // Calculamos la diferencia de meses
+            let months = ahora.getMonth() - fechaInicio.getMonth();
+
+            // Si el mes actual es menor que el mes de inicio, restamos un año y ajustamos los meses
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Calculamos los días restantes
+            const daysInMonth = new Date(ahora.getFullYear(), ahora.getMonth(), 0).getDate(); // Días del mes actual
+            let days = ahora.getDate() - fechaInicio.getDate();
+            
+            // Si los días son negativos (es decir, si aún no ha llegado el día de este mes), ajustamos
+            if (days < 0) {
+                months--;
+                days += daysInMonth;
+            }
+
+            // Calculamos las horas, minutos y segundos
+            const seconds = Math.floor((ahora - fechaInicio) / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+
+            document.getElementById("years").innerText = years;
+            document.getElementById("months").innerText = months;
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours % 24;
+            document.getElementById("minutes").innerText = minutes % 60;
+            document.getElementById("seconds").innerText = seconds % 60;
         }
 
         setInterval(calcularTiempo, 1000); // Actualizar cada segundo
