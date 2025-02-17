@@ -55,13 +55,67 @@
             box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
         }
 
-
         footer {
             background-color: #343a40;
             color: white;
             text-align: center;
             padding: 10px;
             margin-top: auto;
+        }
+
+        .counter-container {
+            padding: 30px 0;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .counter-container h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+        }
+
+        .counter div {
+            margin: 0 10px;
+            background-color: #d63e56;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .counter div span {
+            display: block;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .counter .numbers {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .counter button {
+            margin-top: 20px;
+            background-color: #ff69b4;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 50px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .counter button:hover {
+            background-color: #ff1493;
         }
 
     </style>
@@ -74,12 +128,12 @@
         <h1>Feliz San Valentín, Mi Amor 🐝❤️</h1>
         <p class="lead">¡Eres lo mejor que me ha podido pasar!</p>
         <!-- Botón para reproducir música -->
-    <button id="playMusic" class="btn btn-danger mt-3">🎶 Reproducir Música</button>
+        <button id="playMusic" class="btn btn-danger mt-3">🎶 Reproducir Música</button>
     
-    <audio id="backgroundMusic" loop>
-        <source src="san_valentin.mp3" type="audio/mp3">
-        Tu navegador no soporta audio HTML5.
-    </audio>
+        <audio id="backgroundMusic" loop>
+            <source src="san_valentin.mp3" type="audio/mp3">
+            Tu navegador no soporta audio HTML5.
+        </audio>
     </header>
     
     <!-- Contenido Interactivo -->
@@ -129,6 +183,21 @@ Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
         </div>
     </section>
     
+    <!-- Contador de tiempo -->
+    <section class="counter-container">
+        <div class="container text-center">
+            <h2><span>⏱️❤️</span> <strong>Tiempo que llevamos juntos ❤️</strong></h2>
+            <div id="countdown" class="counter">
+                <div><span class="numbers" id="years">0</span><span>AÑOS</span></div>
+                <div><span class="numbers" id="months">0</span><span>MESES</span></div>
+                <div><span class="numbers" id="days">0</span><span>DÍAS</span></div>
+                <div><span class="numbers" id="hours">0</span><span>HORAS</span></div>
+                <div><span class="numbers" id="minutes">0</span><span>MINUTOS</span></div>
+                <div><span class="numbers" id="seconds">0</span><span>SEGUNDOS</span></div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
         <p> Para Mi Amorcito Anabel, Siempre juntos. 💖</p>
@@ -145,7 +214,31 @@ Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
                 this.innerText = "🎶 Reproducir Música";
             }
         });
+
+        // Función para calcular el tiempo transcurrido desde una fecha específica
+        function calcularTiempo() {
+            const fechaInicio = new Date('2023-09-27T15:00:00'); // Fecha de inicio
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
+
+            const segundos = Math.floor(diferencia / 1000);
+            const minutos = Math.floor(segundos / 60);
+            const horas = Math.floor(minutos / 60);
+            const dias = Math.floor(horas / 24);
+            const meses = Math.floor(dias / 30);
+            const años = Math.floor(meses / 12);
+
+            document.getElementById("years").innerText = años;
+            document.getElementById("months").innerText = meses % 12;
+            document.getElementById("days").innerText = dias % 30;
+            document.getElementById("hours").innerText = horas % 24;
+            document.getElementById("minutes").innerText = minutos % 60;
+            document.getElementById("seconds").innerText = segundos % 60;
+        }
+
+        setInterval(calcularTiempo, 1000); // Actualizar cada segundo
     </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
