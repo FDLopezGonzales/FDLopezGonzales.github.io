@@ -81,10 +81,11 @@
             justify-content: center;
             align-items: center;
             font-size: 36px;
+            flex-wrap: wrap; /* Esto permite que los elementos se ajusten a nuevas líneas */
         }
 
         .counter div {
-            margin: 0 10px;
+            margin: 10px;
             background-color: #d63e56;
             padding: 20px;
             border-radius: 5px;
@@ -100,6 +101,7 @@
         .counter .numbers {
             font-size: 50px;
             font-weight: bold;
+            color: #FFFFFF;
         }
 
         .counter button {
@@ -116,6 +118,38 @@
 
         .counter button:hover {
             background-color: #ff1493;
+        }
+
+        /* Estilos responsive para pantallas más pequeñas */
+        @media (max-width: 992px) {
+            .counter {
+                font-size: 28px;
+            }
+
+            .counter div {
+                flex: 1 1 45%; /* Esto permite que cada cuadro ocupe el 45% del espacio disponible */
+                margin: 10px;
+            }
+
+            .counter .numbers {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .counter {
+                font-size: 24px;
+                flex-direction: column; /* Los elementos se apilan en una columna */
+            }
+
+            .counter div {
+                width: 80%; /* Los cuadros ocupan el 80% del ancho en pantallas más pequeñas */
+                margin: 10px auto;
+            }
+
+            .counter .numbers {
+                font-size: 40px;
+            }
         }
 
     </style>
@@ -186,7 +220,7 @@ Te amo hasta el infinito y mas allá mi abejita. 🐝💘</p>
     <!-- Contador de tiempo -->
     <section class="counter-container">
         <div class="container text-center">
-            <h2><span>⏱️❤️</span> <strong>Tiempo que llevamos juntos ❤️</strong></h2>
+            <h2><span>⏱️❤️</span> <strong>Tiempo que llevamos juntos</strong><span>❤️⏱️</span></h2>
             <div id="countdown" class="counter">
                 <div><span class="numbers" id="years">0</span><span>AÑOS</span></div>
                 <div><span class="numbers" id="months">0</span><span>MESES</span></div>
